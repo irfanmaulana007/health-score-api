@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('customer-illness-weight', 'CustomerIllnessWeightController@getCustomerIllnessWeight');
+
+Route::get('critical-illness-icd', 'CriticalIllnessController@getCriticalICD');
+Route::get('critical-illness-list', 'CriticalIllnessController@getCriticalList');
+
+Route::get('general-illness-icd', 'GeneralIllnessController@getGeneralICD');
+Route::get('general-illness-list', 'GeneralIllnessController@getGeneralList');
+
+Route::get('mental-illness-icd', 'MentalIllnessController@getMentalICD');
+Route::get('mental-illness-list', 'MentalIllnessController@getMentalList');
+
+Route::post('calculate-health-score', 'HealthScoreController@calculateHealthScore');
