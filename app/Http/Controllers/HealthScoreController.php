@@ -11,14 +11,7 @@ use App\Models\MentalIllnessList;
 
 class HealthScoreController extends Controller
 {
-    public function calculateHealthScore(Request $request) {
-        CustomerIllnessWeight::Create([
-            'CustomerID' => 2, // DUMMY
-            'Weight_CI' => $request->critical['illnessWeight'],
-            'Weight_GI' => $request->general['illnessWeight'],
-            'Weight_MI' => $request->mental['illnessWeight'],
-        ]);
-        
+    public function addIllnessList(Request $request) {
         foreach ($request->critical['illnessSelected'] as $illness) {
             CriticalIllnessList::Create([
                 'CustomerID' => 2, // DUMMY
@@ -44,5 +37,16 @@ class HealthScoreController extends Controller
         }
 
         return response()->json('submit data success');
+    }
+
+    public function calculateHealthScore(Request $request) {
+        CustomerIllnessWeight::Create([
+            'CustomerID' => 2, // DUMMY
+            'Weight_CI' => $request->critical['illnessWeight'],
+            'Weight_GI' => $request->general['illnessWeight'],
+            'Weight_MI' => $request->mental['illnessWeight'],
+        ]);
+
+        return response()->json('calculate score success');
     }
 }

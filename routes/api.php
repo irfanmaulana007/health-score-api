@@ -29,4 +29,5 @@ Route::get('general-illness-list', 'GeneralIllnessController@getGeneralList');
 Route::get('mental-illness-icd', 'MentalIllnessController@getMentalICD');
 Route::get('mental-illness-list', 'MentalIllnessController@getMentalList');
 
+Route::post('add-illness-list', 'HealthScoreController@addIllnessList');
 Route::post('calculate-health-score', 'HealthScoreController@calculateHealthScore');
